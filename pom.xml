@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>jp.abyss.spigot.plugin</groupId>
-    <artifactId>GUImanager</artifactId>
+    <artifactId>GUIManager</artifactId>
     <version>1.13.2ver</version>
     <packaging>jar</packaging>
 

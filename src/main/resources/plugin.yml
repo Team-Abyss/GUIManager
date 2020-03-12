@@ -1,4 +1,4 @@
-name: GUImanager
+name: GUIManager
 version: ${project.version}
-main: jp.abyss.spigot.plugin.guimanager.GUImanager
+main: jp.abyss.spigot.plugin.guimanager.GUIManager
 api-version: 1.13.2
