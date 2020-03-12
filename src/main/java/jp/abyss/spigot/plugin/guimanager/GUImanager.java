@@ -7,6 +7,8 @@ public final class GUImanager extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        getLogger().info("GUImanager is enabled");
+        getServer().getPluginManager().registerEvents(new Listener(),this);
 
     }
 
