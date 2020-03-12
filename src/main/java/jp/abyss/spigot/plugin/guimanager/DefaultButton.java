@@ -6,7 +6,7 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 public class DefaultButton implements Button {
-    DefaultButton(int index, ItemStack itemStack){
+    public DefaultButton(int index, ItemStack itemStack){
         this.index = index;
         this.material = itemStack.getType();
         this.itemStack = itemStack;

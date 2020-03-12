@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class ChestGUI extends GUI {
 
-    ChestGUI(GUI parent, String name,int size,Button ...buttons){
+    public ChestGUI(GUI parent, String name,int size,Button ...buttons){
         for (Button button: buttons){
             buttonMap.put(button.getIndex(),button);
         }

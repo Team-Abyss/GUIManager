@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class CancelButton extends DefaultButton {
 
-    CancelButton(int index, ItemStack itemStack) {
+    public CancelButton(int index, ItemStack itemStack) {
         super(index, itemStack);
     }
 
