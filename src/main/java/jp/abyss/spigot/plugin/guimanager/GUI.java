@@ -1,5 +1,6 @@
 package jp.abyss.spigot.plugin.guimanager;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -35,8 +36,16 @@ public abstract class GUI {
         Inventory top = view.getTopInventory();
         if (getSize() != top.getSize()) return false;
         for (int i = 0;i < getSize();i++){
-            if (getMaterial(i) != top.getItem(i).getType()){
-                return false;
+            Material material = getMaterial(i);
+            ItemStack itemStack = top.getItem(i);
+            if (itemStack == null){
+                if (material != null){
+                    return false;
+                }
+            }else {
+                if (itemStack.getType() != material){
+                    return false;
+                }
             }
         }
         return true;

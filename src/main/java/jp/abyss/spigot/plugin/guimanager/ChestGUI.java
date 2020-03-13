@@ -62,7 +62,12 @@ public class ChestGUI extends GUI {
 
     @Override
     public Material getMaterial(int index){
-        return buttonMap.get(index).getMaterial();
+        Button button = buttonMap.get(index);
+        if (button == null){
+            return null;
+        }else {
+            return button.getMaterial();
+        }
     }
 
     @Override
@@ -77,7 +82,10 @@ public class ChestGUI extends GUI {
 
     @Override
     public void clickButton(Player player, int index, ClickType type){
-        buttonMap.get(index).click(this, player, type);
+        Button button = buttonMap.get(index);
+        if (button != null){
+            button.click(this,player,type);
+        }
     }
 
     @Override
