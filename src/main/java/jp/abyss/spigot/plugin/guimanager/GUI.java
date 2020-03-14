@@ -66,8 +66,8 @@ public abstract class GUI {
     public abstract void upDataInventory(Player player);
 
     public final void openLinkedGUI(GUI gui,Player player){
-        gui.openInventory(player);
         exclude.add(player);
+        gui.openInventory(player);
     }
 
     public abstract void onClose(Player player);
