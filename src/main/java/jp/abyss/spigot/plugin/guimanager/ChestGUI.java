@@ -98,4 +98,7 @@ public class ChestGUI extends GUI {
         return size;
     }
 
+    @Override
+    public void onClose(Player player){}
+
 }

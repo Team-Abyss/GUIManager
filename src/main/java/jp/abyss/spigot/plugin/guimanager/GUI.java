@@ -1,6 +1,5 @@
 package jp.abyss.spigot.plugin.guimanager;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -10,7 +9,9 @@ import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public abstract class GUI {
 
@@ -18,10 +19,11 @@ public abstract class GUI {
         entry();
     }
 
-    protected static List<GUI> guiEntryList = new ArrayList<>();
+    protected static Set<GUI> guiEntrySet = new HashSet<>();
+    static List<Player> exclude = new ArrayList<Player>();
 
     static GUI getGui(InventoryView view){
-        for (GUI entry : guiEntryList){
+        for (GUI entry : guiEntrySet){
             if (entry.same(view)){
                 return entry;
             }
@@ -52,7 +54,7 @@ public abstract class GUI {
     }
 
     public final void entry(){
-        guiEntryList.add(this);
+        guiEntrySet.add(this);
     }
 
     public abstract GUI getParent();
@@ -62,6 +64,13 @@ public abstract class GUI {
     public abstract void openInventory(Player player);
 
     public abstract void upDataInventory(Player player);
+
+    public final void openLinkedGUI(GUI gui,Player player){
+        gui.openInventory(player);
+        exclude.add(player);
+    }
+
+    public abstract void onClose(Player player);
 
     /**
      * @param index The index of the Slot's ItemStack to return

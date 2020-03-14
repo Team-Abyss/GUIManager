@@ -9,6 +9,7 @@ public final class GUIManager extends JavaPlugin {
         // Plugin startup logic
         getLogger().info("GUIManager is enabled");
         getServer().getPluginManager().registerEvents(new Listener(),this);
+        getServer().getPluginManager().registerEvents(new CloseListener(),this);
     }
 
     @Override
