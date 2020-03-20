@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public interface Button {
 
@@ -11,17 +12,17 @@ public interface Button {
 
 
     /**
-     * @return ItemStack of GUI(Material is never changer)
+     * @return ItemStack of GUI(Material is never changed)
      */
     Material getMaterial();
 
     /**
      *
      * @param player GUI holder
-     * @return ItemStack of GUI(Material is never changer)
+     * @return ItemStack of GUI(Material is never changed)
      */
-    ItemStack getItemStack(Player player);
+    ItemStack getItemStack(@NotNull Player player);
 
-    void click(GUI gui, Player player, ClickType type);
+    void click(@NotNull GUI gui,@NotNull Player player,@NotNull ClickType type);
 
 }

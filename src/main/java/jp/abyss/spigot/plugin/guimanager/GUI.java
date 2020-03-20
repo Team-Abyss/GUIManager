@@ -7,6 +7,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -59,18 +60,18 @@ public abstract class GUI {
 
     public abstract GUI getParent();
 
-    public abstract Inventory getInventory(Player player);
+    public abstract Inventory getInventory(@NotNull Player player);
 
-    public abstract void openInventory(Player player);
+    public abstract void openInventory(@NotNull Player player);
 
-    public abstract void upDataInventory(Player player);
+    public abstract void upDataInventory(@NotNull Player player);
 
-    public final void openLinkedGUI(GUI gui,Player player){
+    public final void openLinkedGUI(@NotNull GUI gui,@NotNull Player player){
         exclude.add(player);
         gui.openInventory(player);
     }
 
-    public abstract void onClose(Player player);
+    public abstract void onClose(@NotNull Player player);
 
     /**
      * @param index The index of the Slot's ItemStack to return
@@ -79,9 +80,9 @@ public abstract class GUI {
 
     public abstract String getName();
 
-    public abstract ItemStack getItem(Player player, int index);
+    public abstract ItemStack getItem(@NotNull Player player, int index);
 
-    public abstract void clickButton(Player player, int index, ClickType type);
+    public abstract void clickButton(@NotNull Player player, int index,@NotNull ClickType type);
 
     public abstract InventoryType getType();
 

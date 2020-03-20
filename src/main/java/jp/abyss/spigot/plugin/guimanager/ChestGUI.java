@@ -7,14 +7,14 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ChestGUI extends GUI {
 
-    public ChestGUI(GUI parent, String name,int size,Button ...buttons){
+    public ChestGUI(GUI parent,String name, int size, Button...buttons){
         for (Button button: buttons){
             buttonMap.put(button.getIndex(),button);
         }
@@ -37,7 +37,7 @@ public class ChestGUI extends GUI {
     }
 
     @Override
-    public Inventory getInventory(Player player){
+    public Inventory getInventory(@NotNull Player player){
         Inventory inv = Bukkit.createInventory(null,size,name);
         for (Button button :buttons){
             inv.setItem(button.getIndex(),button.getItemStack(player));
@@ -46,12 +46,12 @@ public class ChestGUI extends GUI {
     }
 
     @Override
-    public void openInventory(Player player){
+    public void openInventory(@NotNull Player player){
         player.openInventory(getInventory(player));
     }
 
     @Override
-    public void upDataInventory(Player player){
+    public void upDataInventory(@NotNull Player player){
         if (same(player.getOpenInventory())){
             Inventory top = player.getOpenInventory().getTopInventory();
             for (Button button :buttons){
@@ -76,12 +76,12 @@ public class ChestGUI extends GUI {
     }
 
     @Override
-    public ItemStack getItem(Player player, int index){
+    public ItemStack getItem(@NotNull Player player, int index){
         return buttonMap.get(index).getItemStack(player);
     }
 
     @Override
-    public void clickButton(Player player, int index, ClickType type){
+    public void clickButton(@NotNull Player player, int index, @NotNull ClickType type){
         Button button = buttonMap.get(index);
         if (button != null){
             button.click(this,player,type);
@@ -99,6 +99,6 @@ public class ChestGUI extends GUI {
     }
 
     @Override
-    public void onClose(Player player){}
+    public void onClose(@NotNull Player player){}
 
 }

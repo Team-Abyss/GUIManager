@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class DefaultButton implements Button {
     public DefaultButton(int index, ItemStack itemStack){
@@ -26,11 +27,11 @@ public class DefaultButton implements Button {
     }
 
     @Override
-    public ItemStack getItemStack(Player player){
+    public ItemStack getItemStack(@NotNull Player player){
         return itemStack;
     }
 
     @Override
-    public void click(GUI gui, Player player, ClickType type){
+    public void click(@NotNull GUI gui, @NotNull Player player, @NotNull ClickType type){
     }
 }

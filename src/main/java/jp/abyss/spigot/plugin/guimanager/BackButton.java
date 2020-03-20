@@ -4,6 +4,7 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class BackButton extends DefaultButton {
 
@@ -12,7 +13,7 @@ public class BackButton extends DefaultButton {
     }
 
     @Override
-    public void click(GUI gui, Player player, ClickType type){
+    public void click(@NotNull GUI gui, @NotNull Player player, @NotNull ClickType type){
         GUI parent = gui.getParent();
         if (parent != null){
             player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP,1f,1.5f);
